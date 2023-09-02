@@ -13,7 +13,7 @@ public class CityManager {
    public CityManager(){
        cities = new ArrayList<>();
        usedCities = new ArrayList<>();
-       loadCitiesFromFile("cities.txt");
+       loadCitiesFromFile();
    }
 
    public boolean isValidCity(String city) {
@@ -57,8 +57,8 @@ public class CityManager {
        return cities;
     }
 
-    private void loadCitiesFromFile(String fileName) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+    private void loadCitiesFromFile() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("cities.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 cities.add(line.trim());

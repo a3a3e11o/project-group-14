@@ -15,7 +15,7 @@ public class GameManager {
     }
     private void initializeCityManager(){
         cityManager = new CityManager();
-        cityManager.initializeCities();
+        //cityManager.initializeCities();
     }
     private void initializeMoveManager() {
         moveManager = new MoveManager(ui, cityManager);
