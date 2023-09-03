@@ -30,6 +30,6 @@ public class Game extends JFrame {
     }
 
     private void initializeGameManager() {
-        GameManager gameManager = new GameManager(ui);
+        new GameManager(ui);
     }
 }

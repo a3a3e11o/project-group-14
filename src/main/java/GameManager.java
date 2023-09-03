@@ -1,8 +1,7 @@
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class GameManager {
-    private UserInterface ui;
+    private final UserInterface ui;
     private CityManager cityManager;
     private MoveManager moveManager;
 

@@ -2,13 +2,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class CityManager {
 
-    private final List <String> cities;
-    private ArrayList <String> usedCities;
-   private String lastCity = "";
+    private final ArrayList <String> cities;
+    private final ArrayList <String> usedCities;
+    private String lastCity = "";
 
    public CityManager(){
        cities = new ArrayList<>();
@@ -16,22 +15,26 @@ public class CityManager {
        loadCitiesFromFile();
    }
 
-   public boolean isValidCity(String city) {
-       char lastLetter = city.charAt(city.length() - 1);
-       if (city.isEmpty()) {
-           return false;
-       } else if (lastCity.charAt(lastCity.length() - 1) != lastLetter) {
-           return false;
-       }
-       if (cities.contains(city)) {
-           usedCities.add(city);
-           cities.remove(city);
-           lastCity = city;
-           return true;
-       }
+    public boolean isValidCity(String city) {
+        if (lastCity.isEmpty()) {
+            lastCity = city;
+            cities.remove(city);
+            usedCities.add(city);
+            return true;
+        }
+        char lastLetter = city.charAt(city.length() - 1);
+        if (lastCity.charAt(lastCity.length() - 1) != lastLetter) {
+            return false;
+        }
+        if (cities.contains(city)) {
+            usedCities.add(city);
+            cities.remove(city);
+            lastCity = city;
+            return true;
+        }
+        return false;
+    }
 
-       return false;
-   }
    public boolean isUsedCity(String city){
        return usedCities.contains(city);
    }
@@ -53,7 +56,7 @@ public class CityManager {
        cities.remove(city);
        lastCity = city;
     }
-    public List <String> getCities(){
+    public ArrayList <String> getCities(){
        return cities;
     }
 
@@ -64,7 +67,7 @@ public class CityManager {
                 cities.add(line.trim());
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 }

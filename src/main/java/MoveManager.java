@@ -1,7 +1,7 @@
 import javax.swing.*;
 public class MoveManager {
-    private UserInterface ui;
-    private CityManager cityManager;
+    private final UserInterface ui;
+    private final CityManager cityManager;
     public MoveManager(UserInterface ui, CityManager cityManager) {
         this.ui = ui;
         this.cityManager = cityManager;
