@@ -29,7 +29,6 @@ public class Game extends JFrame {
         add(ui, BorderLayout.CENTER);
     }
 
-
     private void initializeGameManager() {
         new GameManager(ui);
     }
