@@ -5,24 +5,31 @@ public class GameManager {
     private CityManager cityManager;
     private MoveManager moveManager;
 
-    public GameManager(UserInterface ui){
+    public GameManager(UserInterface ui) {
         this.ui = ui;
         initializeCityManager();
         initializeMoveManager();
         ui.addActionListenerToPlayButton(new PlayButtonListener());
 
     }
-    private void initializeCityManager(){
+
+    private void initializeCityManager() {
         cityManager = new CityManager();
-        //cityManager.initializeCities();
+        cityManager.initializeCities();
     }
+
     private void initializeMoveManager() {
         moveManager = new MoveManager(ui, cityManager);
     }
+
     private class PlayButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            moveManager.makeMove();
+            if (cityManager.isComputerTurn()) {
+                moveManager.makeComputerMove();
+            } else {
+                moveManager.makeMove();
+            }
         }
     }
 }
