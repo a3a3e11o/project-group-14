@@ -3,17 +3,17 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class CityManager {
-
     private final ArrayList <String> cities;
     private final ArrayList <String> usedCities;
     private String lastCity = "";
 
-    public CityManager(){
+    public CityManager() {
         cities = new ArrayList<>();
         usedCities = new ArrayList<>();
         loadCitiesFromFile();
     }
-    public boolean isUsedCity(String city){
+
+    public boolean isUsedCity(String city) {
 
         return usedCities.contains(city);
     }
@@ -22,7 +22,6 @@ public class CityManager {
         if (usedCities.contains(city)) {
             return false;
         }
-
         else if (!lastCity.isEmpty()) {
             char firstLetter = Character.toLowerCase(city.charAt(0));
             char lastLetter = Character.toLowerCase(lastCity.charAt(lastCity.length() - 1));
@@ -30,8 +29,6 @@ public class CityManager {
                 return false;
             }
         }
-
-
         else if (!cities.contains(city)) {
             usedCities.add(city);
             lastCity = city;
@@ -40,10 +37,10 @@ public class CityManager {
         }
         return true;
     }
+
     public boolean isGameOver() {
         return cities.isEmpty();
     }
-
 
     public boolean containsCyrillicCharacters(String city) {
         for (char c : city.toCharArray()) {
@@ -53,19 +50,24 @@ public class CityManager {
         }
         return true;
     }
-    public boolean isComputerTurn(){
+
+    public boolean isComputerTurn() {
         return !lastCity.isEmpty() && Character.isUpperCase(lastCity.charAt(0));
     }
-    public String getLastCity(){
+
+    public String getLastCity() {
         return lastCity;
     }
-    public void removeCity(String city){
+
+    public void removeCity(String city) {
         cities.remove(city);
         lastCity = city;
     }
-    public ArrayList <String> getCities(){
+
+    public ArrayList <String> getCities() {
         return cities;
     }
+
     public void initializeCities() {
         loadCitiesFromFile();
     }
@@ -81,5 +83,4 @@ public class CityManager {
             throw new RuntimeException(e);
         }
     }
-
 }

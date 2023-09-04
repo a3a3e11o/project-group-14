@@ -1,5 +1,6 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 public class GameManager {
     private final UserInterface ui;
     private CityManager cityManager;
