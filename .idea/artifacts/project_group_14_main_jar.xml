@@ -7,6 +7,7 @@
       </element>
       <element id="module-output" name="project-group-14.main" />
       <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.overturetool.ide.plugins/org.overture.ide.plugins.combinatorialtesting/3.0.2/be2da1c32f3c3b002ad701d3cf88544718e065c3/org.overture.ide.plugins.combinatorialtesting-3.0.2.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PROJECT_DIR$/icon.png" />
     </root>
   </artifact>
 </component>
