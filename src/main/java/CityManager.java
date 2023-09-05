@@ -20,6 +20,7 @@ public class CityManager {
     }
 
     public boolean isValidCity(String city) {
+        if (cities.contains(city)) {
         if (usedCities.contains(city)) {
             usedCities.add(city);
         } else if (!lastCity.isEmpty()) {
@@ -28,6 +29,7 @@ public class CityManager {
             return firstLetter == lastLetter;
         } else return cities.contains(city);
         return true;
+        } return false;
     }
 
     public boolean isGameOver() {
