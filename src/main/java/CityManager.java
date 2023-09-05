@@ -1,6 +1,5 @@
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -8,6 +7,8 @@ public class CityManager {
     private final Set<String> cities;
     private final Set<String> usedCities;
     private String lastCity = "";
+    private int userCityCount = 0;
+    private int computerCityCount = 0;
 
     public CityManager() {
         cities = new HashSet<>();
@@ -65,6 +66,18 @@ public class CityManager {
 
     public void initializeCities() {
         loadCitiesFromFile();
+    }
+
+    public void incrementUserCityCount() {
+        userCityCount++;
+    }
+
+    public void incrementComputerCityCount() {
+        computerCityCount++;
+    }
+
+    public String getCityCountRatio() {
+        return userCityCount + ":" + computerCityCount;
     }
 
     private void loadCitiesFromFile() {

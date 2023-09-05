@@ -12,7 +12,7 @@ public class MoveManager {
     public void makeMove() {
         String userCity = ui.getUserInput();
         if (userCity.equalsIgnoreCase("Здаюсь")) {
-            JOptionPane.showMessageDialog(null, "Комп'ютер переміг! Удачі наступного разу");
+            JOptionPane.showMessageDialog(null, "Комп'ютер переміг " + cityManager.getCityCountRatio() + "! Удачі наступного разу");
             System.exit(0);
         }
         if (!cityManager.containsCyrillicCharacters(userCity)) {
@@ -35,6 +35,7 @@ public class MoveManager {
                 return;
             }
             cityManager.removeCity(userCity);
+            cityManager.incrementUserCityCount();
             ui.setResponseLabel("Місто на букву " + userCity.charAt(userCity.length() - 1) + ":");
 
             ui.clearInputField();
@@ -51,11 +52,12 @@ public class MoveManager {
             cityManager.removeCity(computerCity);
             ui.setResponseLabel("Місто на букву " + computerCity.charAt(computerCity.length() - 1) + ":");
         } else {
-            JOptionPane.showMessageDialog(null, "Комп'ютер не може знайти місто. Гравець переміг!");
+            JOptionPane.showMessageDialog(null, "Комп'ютер не може знайти місто. Гравець переміг! " + cityManager.getCityCountRatio());
             GameManager.setIsPlayerTurn(true);
             return;
         }
         cityManager.removeCity(computerCity);
+        cityManager.incrementComputerCityCount();
         ui.setComputerResponseLabel("Комп'ютер: " + computerCity);
         GameManager.setIsPlayerTurn(true);
     }

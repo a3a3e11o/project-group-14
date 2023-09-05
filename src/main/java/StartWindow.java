@@ -12,6 +12,9 @@ public class StartWindow extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
+        ImageIcon icon = new ImageIcon("icon.png");
+        setIconImage(icon.getImage());
+
         JPanel panel = new JPanel(new BorderLayout());
 
         JLabel welcomeLabel = new JLabel("Вітаємо вас у грі дитинства і всіх розумників!");

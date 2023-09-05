@@ -21,6 +21,10 @@ public class Game extends JFrame {
         setSize(400, 120);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+
+        ImageIcon icon = new ImageIcon("icon.png");
+        setIconImage(icon.getImage());
+
         setVisible(true);
     }
 
