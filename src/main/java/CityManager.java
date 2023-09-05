@@ -21,12 +21,13 @@ public class CityManager {
 
     public boolean isValidCity(String city) {
         if (usedCities.contains(city)) {
-           usedCities.add(city);
+            usedCities.add(city);
         } else if (!lastCity.isEmpty()) {
             char firstLetter = Character.toLowerCase(city.charAt(0));
             char lastLetter = Character.toLowerCase(lastCity.charAt(lastCity.length() - 1));
             return firstLetter == lastLetter;
         } else return cities.contains(city);
+        return true;
     }
 
     public boolean isGameOver() {
