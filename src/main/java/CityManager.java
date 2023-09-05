@@ -5,12 +5,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class CityManager {
-    private final ArrayList<String> cities;
+    private final Set<String> cities;
     private final Set<String> usedCities;
     private String lastCity = "";
 
     public CityManager() {
-        cities = new ArrayList<>();
+        cities = new HashSet<>();
         usedCities = new HashSet<>();
         loadCitiesFromFile();
     }
@@ -57,7 +57,7 @@ public class CityManager {
         lastCity = city;
     }
 
-    public ArrayList<String> getCities() {
+    public Set<String> getCities() {
         return cities;
     }
 
