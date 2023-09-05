@@ -7,6 +7,7 @@ public class CityManager {
     private final ArrayList <String> usedCities;
     private String lastCity = "";
 
+
     public CityManager() {
         cities = new ArrayList<>();
         usedCities = new ArrayList<>();
@@ -21,18 +22,13 @@ public class CityManager {
     public boolean isValidCity(String city) {
         if (usedCities.contains(city)) {
             return false;
-        }
-        else if (!lastCity.isEmpty()) {
+        } else if (!lastCity.isEmpty()) {
             char firstLetter = Character.toLowerCase(city.charAt(0));
             char lastLetter = Character.toLowerCase(lastCity.charAt(lastCity.length() - 1));
             if (firstLetter != lastLetter) {
                 return false;
             }
-        }
-        else if (!cities.contains(city)) {
-            usedCities.add(city);
-            lastCity = city;
-            cities.remove(city);
+        } else if (!cities.contains(city)) {
             return false;
         }
         return true;
@@ -52,7 +48,10 @@ public class CityManager {
     }
 
     public boolean isComputerTurn() {
-        return !lastCity.isEmpty() && Character.isUpperCase(lastCity.charAt(0));
+        if (GameManager.isPlayerTurn()) {
+            return false;
+        }
+        return true;
     }
 
     public String getLastCity() {

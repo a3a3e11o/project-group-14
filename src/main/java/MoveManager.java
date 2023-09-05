@@ -36,7 +36,7 @@ public class MoveManager {
             }
             cityManager.removeCity(userCity);
             ui.setResponseLabel("Місто на букву " + userCity.charAt(userCity.length() - 1) + ":");
-            if (!cityManager.isGameOver()) {
+            if (!cityManager.isGameOver()){
                 makeComputerMove();
             }
         }
@@ -44,16 +44,17 @@ public class MoveManager {
 
     public void makeComputerMove() {
         String computerCity = findComputerCity();
-        if (computerCity != null && cityManager.isComputerTurn()) {
+        if (computerCity != null) {
             cityManager.removeCity(computerCity);
             ui.setResponseLabel("Місто на букву " + computerCity.charAt(computerCity.length() - 1) + ":");
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "Гравець переміг! Вітаємо!");
-            System.exit(0);
+        } else {
+            JOptionPane.showMessageDialog(null, "Комп'ютер не може знайти місто. Гравець переміг!");
+            GameManager.setIsPlayerTurn(true);
+            return;
         }
         cityManager.removeCity(computerCity);
         ui.setComputerResponseLabel("Комп'ютер: " + computerCity);
+        GameManager.setIsPlayerTurn(true);
     }
 
     private String findComputerCity() {

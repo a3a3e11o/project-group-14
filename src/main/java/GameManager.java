@@ -6,6 +6,13 @@ public class GameManager {
     private CityManager cityManager;
     private MoveManager moveManager;
 
+    public static void setIsPlayerTurn(boolean isPlayerTurn) {
+        GameManager.isPlayerTurn = isPlayerTurn;
+    }
+
+    private static boolean isPlayerTurn = true;
+
+
     public GameManager(UserInterface ui) {
         this.ui = ui;
         initializeCityManager();
@@ -21,6 +28,10 @@ public class GameManager {
 
     private void initializeMoveManager() {
         moveManager = new MoveManager(ui, cityManager);
+    }
+
+    public static boolean isPlayerTurn() {
+        return isPlayerTurn;
     }
 
     private class PlayButtonListener implements ActionListener {
