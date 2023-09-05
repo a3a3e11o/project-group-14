@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="project-group-14.main:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/project_group_14_main_jar</output-path>
+    <root id="archive" name="project-group-14.main.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="project-group-14.main" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.overturetool.ide.plugins/org.overture.ide.plugins.combinatorialtesting/3.0.2/be2da1c32f3c3b002ad701d3cf88544718e065c3/org.overture.ide.plugins.combinatorialtesting-3.0.2.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
