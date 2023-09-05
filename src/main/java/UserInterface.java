@@ -46,4 +46,8 @@ public class UserInterface extends JPanel {
     public void addActionListenerToPlayButton(ActionListener listener) {
         playButton.addActionListener(listener);
     }
+
+    public void clearInputField() {
+        inputField.setText("");
+    }
 }

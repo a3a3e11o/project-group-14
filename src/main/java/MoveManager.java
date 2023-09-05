@@ -36,6 +36,9 @@ public class MoveManager {
             }
             cityManager.removeCity(userCity);
             ui.setResponseLabel("Місто на букву " + userCity.charAt(userCity.length() - 1) + ":");
+
+            ui.clearInputField();
+
             if (!cityManager.isGameOver()){
                 makeComputerMove();
             }
